@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 
-import { db } from "../../firebase";
 import {
-  collection,
-  query,
-  onSnapshot,
   addDoc,
-  doc,
+  collection,
   deleteDoc,
+  doc,
+  onSnapshot,
+  query,
   updateDoc,
 } from "firebase/firestore";
 import checkIcon from "../../assets/checkIcon.png";
+import { db } from "../../firebase";
+import TodoList from "../TodoList/TodoList";
 // import hihi from "../../assets/hihi.jpg";
 import "./Todo.css";
-import TodoList from "../TodoList/TodoList";
+import Header from "../Header/Header";
 
 const Todo = () => {
   const [value, setValue] = useState("");
@@ -61,12 +62,8 @@ const Todo = () => {
       value: value.trim(),
     });
   };
-  // const handleShowDone = async (todos) => {
-  //   await todos.forEach((i) => {
-  //     if (i.isComplete === true) {
-  //       console.log("=====");
-  //     }
-  //   });
+
+  // const handleShowDone = (todos) => {
   //   // const newTodo = [];
   //   // todoList.forEach((i) => {
   //   //   if (i.isComplete === true) {
@@ -92,6 +89,7 @@ const Todo = () => {
 
   return (
     <div className="main">
+      <Header />
       <div className="Todo container m-5 p-2 rounded mx-auto shadow">
         <div className="row m-1 p-4">
           <div className="col">
@@ -130,17 +128,17 @@ const Todo = () => {
             </div>
           </div>
           <div className="p-2 mx-4 border-black-25 border-bottom"></div>
-          {/* <div className="button-todo col col-11 mx-auto">
-          <button className="btn" type="button" onClick={handleShowAll}>
-            Show all
-          </button>
-          <button className="btn " type="button" onClick={handleShowDone}>
-            Show done
-          </button>
-          <button className="btn" type="button" onClick={handleShowNotDone}>
-            Show Unfinished
+          <div className="button-todo col col-11 mx-auto">
+            {/* <button className="btn" type="button" onClick={handleShowAll}>
+              Show all
             </button>
-          </div> */}
+            <button className="btn " type="button" onClick={handleShowDone}>
+              Show done
+            </button>
+            <button className="btn" type="button" onClick={handleShowNotDone}>
+              Show Unfinished
+            </button> */}
+          </div>
         </form>
         <TodoList
           toDos={todos}

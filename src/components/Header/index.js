@@ -1,3 +1,3 @@
-import HeaderTodo from "./Header";
+import Header from "./Header";
 
-export default HeaderTodo;
+export default Header;
